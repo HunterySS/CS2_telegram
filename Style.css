@@ -1,0 +1,390 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ШАПКА */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.logo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.user-info h1 {
+    font-size: 1.8em;
+    margin-bottom: 5px;
+    background: linear-gradient(45deg, #00b4d8, #90e0ef);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ОСНОВНЫЕ РАЗДЕЛЫ (3 КАРТОЧКИ) */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 25px 15px;
+    border-radius: 18px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s;
+    cursor: pointer;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.maps-card:hover {
+    border-color: #4CAF50;
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.2);
+}
+
+.crosshair-card:hover {
+    border-color: #FF9800;
+    box-shadow: 0 5px 15px rgba(255, 152, 0, 0.2);
+}
+
+.weapon-card:hover {
+    border-color: #2196F3;
+    box-shadow: 0 5px 15px rgba(33, 150, 243, 0.2);
+}
+
+.stat-icon {
+    width: 125px;
+    height: 125px;
+    margin-bottom: 20px;
+    object-fit: contain;
+}
+
+.stat-card h3 {
+    font-size: 1.4em;
+    margin-bottom: 8px;
+    color: #ffffff;
+}
+
+.stat-card p {
+    font-size: 1em;
+    color: #caf0f8;
+    opacity: 0.9;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.card-subtags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 8px;
+}
+
+.card-subtags span {
+    font-size: 0.75em;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 3px 8px;
+    border-radius: 12px;
+    color: #90e0ef;
+}
+
+/* СЕКЦИЯ ВЫБОРА ОРУЖИЯ */
+.weapon-selector {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 5px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.section-header h2 {
+    color: #ffffff;
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.back-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background 0.3s;
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.weapons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-items: center;
+}
+
+.weapon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    padding: 20px 15px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    width: 100%;
+    min-height: 140px;
+    justify-content: center;
+}
+
+.weapon-item:hover {
+    background: rgba(0, 180, 216, 0.2);
+    transform: scale(1.05);
+    border: 1px solid #00b4d8;
+}
+
+.weapon-img {
+    width: 75px;
+    height: 75px;
+    margin-bottom: 12px;
+    transition: transform 0.3s;
+    object-fit: contain;
+}
+
+.weapon-item:hover .weapon-img {
+    transform: scale(1.1);
+}
+
+.weapon-label {
+    font-size: 1em;
+    color: #90e0ef;
+    text-align: center;
+    font-weight: 500;
+    padding: 0 5px;
+}
+
+/* ИНФОРМАЦИЯ ОБ ОРУЖИИ */
+.weapon-info {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 25px;
+    border-radius: 15px;
+    min-height: 300px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 250px;
+    color: #90e0ef;
+    text-align: center;
+}
+
+.placeholder-img {
+    width: 100px;
+    height: 100px;
+    opacity: 0.5;
+    margin-bottom: 20px;
+    object-fit: contain;
+}
+
+.placeholder-tips {
+    margin-top: 25px;
+    max-width: 400px;
+}
+
+.placeholder-tips p {
+    margin: 8px 0;
+    font-size: 0.95em;
+    color: #caf0f8;
+    line-height: 1.5;
+}
+
+.placeholder-tips strong {
+    color: #00b4d8;
+}
+
+/* СТИЛИ ДЛЯ ИНФОРМАЦИИ ОБ ОРУЖИИ */
+.weapon-details {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.weapon-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.weapon-header-img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.weapon-title {
+    font-size: 1.8em;
+    color: #00b4d8;
+}
+
+.weapon-price {
+    color: #ffd166;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.stat-box {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 3px solid #00b4d8;
+}
+
+.stat-box h4 {
+    color: #ffffff;
+    margin-bottom: 8px;
+    font-size: 1em;
+}
+
+.tips-box {
+    background: rgba(0, 180, 216, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.tips-box h3 {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.tips-list {
+    padding-left: 20px;
+}
+
+.tips-list li {
+    margin-bottom: 8px;
+    color: #caf0f8;
+}
+
+/* ФУТЕР */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #90e0ef;
+    font-size: 0.9em;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.footer-icon {
+    width: 30px;
+    height: 30px;
+    opacity: 0.7;
+}
+
+/* АНИМАЦИИ */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* АДАПТИВНОСТЬ */
+@media (max-width: 600px) {
+    .stats {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .weapons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .weapon-img {
+        width: 65px;
+        height: 65px;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+    
+    .section-header h2 {
+        font-size: 1.3em;
+    }
+}

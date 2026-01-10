@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS2 Pro Helper</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="user-info">
+                <!-- Логотип CS2 (некликабельный) -->
+                <img src="https://yt3.googleusercontent.com/bxbSLVED4LU4vNv61HewarVk1a_wSJ7BMvtnvT45QlvsLgFP90j0-X6Pju7X8Nrs5QijNOa2=s900-c-k-c0x00ffffff-no-rj" alt="CS2" class="logo">
+                <div>
+                    <h1 id="userName">CS2 Pro Helper</h1>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- ОСНОВНЫЕ РАЗДЕЛЫ (2 вместо 3) -->
+            <div class="stats">
+                <!-- ОДИН раздел "Карты" (включает раскид и позиции) -->
+                <div class="stat-card maps-card" onclick="openMapsSection()">
+                    <img src="D:\img\Mirage.png" 
+                         alt="Карты" class="stat-icon">
+                    <h3>Карты</h3>
+                    <p>Раскид + Позиции + Полезные фишки</p>
+                    <div class="card-subtags">
+                        <span>Dust2</span>
+                        <span>Mirage</span>
+                        <span>Inferno</span>
+                    </div>
+                </div>
+                
+                <!-- Раздел "Прицелы" -->
+                <div class="stat-card crosshair-card" onclick="openCrosshairsSection()">
+                    <img src="https://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/8c6113c5e677439.png" 
+                         alt="Прицелы" class="stat-icon">
+                    <h3>Прицелы</h3>
+                    <p>Настройки pro игроков</p>
+                    <div class="card-subtags">
+                        <span>s1mple</span>
+                        <span>ZywOo</span>
+                        <span>NiKo</span>
+                    </div>
+                </div>
+                
+                <!-- Раздел "Оружие" -->
+                <div class="stat-card weapon-card" onclick="openWeaponsSection()">
+                    <img src="https://cs.money/assets/rs:fit:0:0:0/q:100/f:webp/dpr:1/t:0:FF00FF:1:1/plain/https://screenshots.cs.money/csmoney2/bb75a5f7542dfedc54a9a76cd66eadf8_large_preview.png" 
+                         alt="Оружие" class="stat-icon">
+                    <h3>Оружие</h3>
+                    <p>Характеристики и урон</p>
+                    <div class="card-subtags">
+                        <span>AK-47</span>
+                        <span>AWP</span>
+                        <span>M4A4</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- СЕКЦИЯ ОРУЖИЯ (будет показываться при клике на раздел "Оружие") -->
+            <div id="weaponsSection" class="weapon-selector" style="display: none;">
+                <div class="section-header">
+                    <h2>Выберите оружие:</h2>
+                    <button class="back-btn" onclick="showMainSections()">← Назад</button>
+                </div>
+                <div class="weapons">
+                    <!-- AK-47 - кликабельная картинка -->
+                    <div class="weapon-item" onclick="selectWeapon('ak47')">
+                        <img src="https://img.icons8.com/color/96/000000/assault-rifle.png" 
+                             alt="AK-47" class="weapon-img">
+                        <span class="weapon-label">AK-47</span>
+                    </div>
+                    
+                    <!-- M4A4 - кликабельная картинка -->
+                    <div class="weapon-item" onclick="selectWeapon('m4a4')">
+                        <img src="https://img.icons8.com/color/96/000000/rifle.png" 
+                             alt="M4A4" class="weapon-img">
+                        <span class="weapon-label">M4A4</span>
+                    </div>
+                    
+                    <!-- AWP - кликабельная картинка -->
+                    <div class="weapon-item" onclick="selectWeapon('awp')">
+                        <img src="https://img.icons8.com/color/96/000000/sniper-rifle.png" 
+                             alt="AWP" class="weapon-img">
+                        <span class="weapon-label">AWP</span>
+                    </div>
+                    
+                    <!-- Glock - кликабельная картинка -->
+                    <div class="weapon-item" onclick="selectWeapon('glock')">
+                        <img src="https://img.icons8.com/color/96/000000/pistol.png" 
+                             alt="Glock" class="weapon-img">
+                        <span class="weapon-label">Glock</span>
+                    </div>
+                    
+                    <!-- USP-S - кликабельная картинка -->
+                    <div class="weapon-item" onclick="selectWeapon('usp')">
+                        <img src="https://img.icons8.com/color/96/000000/silencer.png" 
+                             alt="USP-S" class="weapon-img">
+                        <span class="weapon-label">USP-S</span>
+                    </div>
+                    
+                    <!-- Desert Eagle - кликабельная картинка -->
+                    <div class="weapon-item" onclick="selectWeapon('deagle')">
+                        <img src="https://img.icons8.com/color/96/000000/handgun.png" 
+                             alt="Deagle" class="weapon-img">
+                        <span class="weapon-label">Desert Eagle</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ОКНО С ИНФОРМАЦИЕЙ ОБ ОРУЖИИ -->
+            <div id="weaponInfo" class="weapon-info">
+                <div class="placeholder">
+                    <img src="https://img.icons8.com/color/96/000000/rifle.png" 
+                         alt="Выберите оружие" class="placeholder-img">
+                    <p>Выберите раздел для начала работы</p>
+                    <div class="placeholder-tips">
+                        <p><strong>Карты:</strong> раскид гранат, позиции, смоки</p>
+                        <p><strong>Прицелы:</strong> настройки про-игроков</p>
+                        <p><strong>Оружие:</strong> характеристики и советы</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <img src="https://img.icons8.com/color/48/000000/telegram-app.png" 
+                 alt="Telegram" class="footer-icon">
+            <p>CS2 Pro Helper v1.0 | Для Telegram Mini App</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
